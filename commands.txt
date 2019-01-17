@@ -14,6 +14,8 @@ virtualenv molecule
 molecule/bin/activate
 pip install molecule
 molecule --version
+# comment out line 183
+vi /usr/lib/python2.7/site-packages/testinfra/plugin.py 
 
 # creating and testing an empty role
 molecule init role --role-name cowsay
@@ -26,6 +28,15 @@ molecule idempotence
 molecule verify
 cat molecule/default/tests/test_default.py
 
+# modify role
+vi tasks/cowsay.yml
+vi tasks/tasks.yml
+molecule converge
+molecule idempotence
+molecule verify
+cp molecule/default/tests/test_default.py  molecule/default/tests/test_cowsay.py
+vi molecule/default/tests/test_cowsay.py
+molecule verify
 
 
 
