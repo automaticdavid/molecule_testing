@@ -41,6 +41,6 @@ molecule destroy
 
 # run a testing scenario
 molecule test
-
+# edit molecule.yml to change the test scenario, ie remove lint
 
 
