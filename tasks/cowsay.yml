@@ -1,6 +1,11 @@
 ---
 
+- name: Need EPEL
+  yum:
+    name: epel-release
+    state: present
+
 - name: Install required packages for cowsay
-  package:
+  yum:
     name: cowsay
     state: present
