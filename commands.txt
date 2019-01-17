@@ -37,6 +37,7 @@ molecule verify
 cp molecule/default/tests/test_default.py  molecule/default/tests/test_cowsay.py
 vi molecule/default/tests/test_cowsay.py
 molecule verify
+# optionaly modify the test to make it fail
 molecule destroy
 
 # run a testing scenario
