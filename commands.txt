@@ -1,0 +1,31 @@
+# requirements
+cd 
+sudo su 
+mkdir molecule
+cd molecule
+yum install gcc
+yum install docker
+service docker start
+docker pull centos:7
+
+# setup
+pip install docker
+virtualenv molecule
+molecule/bin/activate
+pip install molecule
+molecule --version
+
+# creating and testing an empty role
+molecule init role --role-name cowsay
+cd cowsay
+cat molecule/default/molecule.yml 
+cat molecule/default/playbook.yml 
+molecule create
+molecule converge
+molecule idempotence
+molecule verify
+cat molecule/default/tests/test_default.py
+
+
+
+
